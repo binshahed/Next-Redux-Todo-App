@@ -1,9 +1,9 @@
 import { ADDED, TOGGLED, DELETED } from './actionType'
 
-export const added = todoText => {
+export const added = (todoText, todoDescription) => {
   return {
     type: ADDED,
-    payload: todoText
+    payload: { todoText, todoDescription }
   }
 }
 

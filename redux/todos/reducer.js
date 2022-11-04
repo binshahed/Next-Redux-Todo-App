@@ -6,14 +6,15 @@ function nextTodoId (todos) {
   return maxId + 1
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState || [], action) => {
   switch (action.type) {
     case ADDED:
       const allTodo = [
         ...state,
         {
           id: nextTodoId(state),
-          text: action.payload,
+          text: action.payload.todoText,
+          description: action.payload.todoDescription,
           completed: false
         }
       ]

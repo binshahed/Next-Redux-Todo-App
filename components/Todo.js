@@ -3,7 +3,7 @@ import { deleted, toggled } from '../redux/todos/action'
 
 export default function Todo ({ todo }) {
   const dispatch = useDispatch()
-  const { text, completed, id } = todo
+  const { text, description, completed, id } = todo
 
   const handleStatusChange = id => {
     dispatch(toggled(id))
@@ -35,10 +35,19 @@ export default function Todo ({ todo }) {
         )}
       </div>
 
-      <div className={`select-none flex-1  ${completed && 'line-through'}`}>
-        {text}
+      <div className='select-none flex-1'>
+        <h1 className={`text-xl font-bold ${completed && 'line-through'}`}>
+          {text}
+        </h1>
+        <p>{description}</p>
       </div>
 
+      <img
+        src='https://cdn-icons-png.flaticon.com/512/32/32355.png'
+        className='flex-shrink-0 w-4 h-4 ml-2 cursor-pointer'
+        alt='Cancel'
+        onClick={() => handleDelete(id)}
+      />
       <img
         src='https://cdn-icons-png.flaticon.com/512/66/66847.png'
         className='flex-shrink-0 w-4 h-4 ml-2 cursor-pointer'
