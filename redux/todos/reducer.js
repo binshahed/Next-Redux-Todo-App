@@ -9,7 +9,7 @@ function nextTodoId (todos) {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADDED:
-      return [
+      const allTodo = [
         ...state,
         {
           id: nextTodoId(state),
@@ -17,8 +17,10 @@ const reducer = (state = initialState, action) => {
           completed: false
         }
       ]
+      localStorage.setItem('todo-value', JSON.stringify(allTodo))
+      return JSON.parse(localStorage.getItem('todo-value'))
     case TOGGLED:
-      return state.map(todo => {
+      const updatedTodo = state.map(todo => {
         if (todo.id !== action.payload) {
           return todo
         }
@@ -27,9 +29,13 @@ const reducer = (state = initialState, action) => {
           completed: !todo.completed
         }
       })
+      localStorage.setItem('todo-value', JSON.stringify(updatedTodo))
+      return updatedTodo
 
     case DELETED:
-      return state.filter(todo => todo.id !== action.payload)
+      const deletedItem = state.filter(todo => todo.id !== action.payload)
+      localStorage.setItem('todo-value', JSON.stringify(deletedItem))
+      return deletedItem
 
     default:
       return state

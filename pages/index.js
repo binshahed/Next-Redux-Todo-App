@@ -12,16 +12,12 @@ export default function Home () {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='grid place-items-center bg-blue-100 h-screen px-6 font-sans'>
+      <main className='grid place-items-center bg-gray-200 h-screen px-6 font-sans'>
         <Navbar />
         <div className='w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white'>
           <TopBar />
 
-          <hr className='mt-4' />
-
           <TodoList />
-
-          <hr className='mt-4' />
         </div>
       </main>
     </div>

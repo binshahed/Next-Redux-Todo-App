@@ -29,7 +29,10 @@ const TopBar = () => {
           value={input}
           onChange={handleInput}
         />
-        <button type='submit'></button>
+        <button
+          type='submit'
+          className={`appearance-none w-8 h-8 bg-[url('https://cdn-icons-png.flaticon.com/512/262/262038.png')] bg-no-repeat bg-contain`}
+        ></button>
       </form>
     </div>
   )
