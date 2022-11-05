@@ -6,15 +6,3 @@ const getInitialState = () => {
   }
 }
 export const initialState = getInitialState()
-// export const initialState = [
-//   {
-//     id: 1,
-//     text: 'Todo One',
-//     completed: true
-//   },
-//   {
-//     id: 2,
-//     text: 'Todo no',
-//     completed: false
-//   }
-// ]

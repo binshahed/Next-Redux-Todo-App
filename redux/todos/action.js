@@ -1,4 +1,4 @@
-import { ADDED, TOGGLED, DELETED } from './actionType'
+import { ADDED, TOGGLED, DELETED, EDITED } from './actionType'
 
 export const added = (todoText, todoDescription) => {
   return {
@@ -17,5 +17,11 @@ export const deleted = todoId => {
   return {
     type: DELETED,
     payload: todoId
+  }
+}
+export const edited = (todoId, todoText, todoDescription) => {
+  return {
+    type: EDITED,
+    payload: { todoId, todoText, todoDescription }
   }
 }
